@@ -4,6 +4,10 @@ D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp
 D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(36,42): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
 D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(42,55): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
 D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(42,36): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(66,41): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(116,13): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(173,13): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(201,17): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
@@ -19,5 +23,11 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  Bird.cpp
 D:\tailieu\c++\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(60): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[10],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[10],TEXT_COLOR &&,double &&)' being compiled
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\Bird.cpp(45,11): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  GameStatebase.cpp
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\Bird.cpp(50,9): warning C4244:  'return': conversion from 'float' to 'int', possible loss of data
+D:\tailieu\c++\Programming_lesson_06\TrainingFramework\Bird.cpp(50,9): warning C4244: Skipping... (no relevant changes detected)
   TrainingFramework.vcxproj -> D:\tailieu\c++\Programming_lesson_06\\BIN-Nvidia\TrainingFramework.exe

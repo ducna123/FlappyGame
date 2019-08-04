@@ -18,7 +18,7 @@ GSMenu::~GSMenu()
 void GSMenu::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("BGDay");
 
 	//BackGround
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -36,20 +36,11 @@ void GSMenu::Init()
 		});
 	m_listButton.push_back(button);
 	
-	//Credit button
-	auto texture1 = ResourceManagers::GetInstance()->GetTexture("button_sample_button");
-	std::shared_ptr<GameButton> button1 = std::make_shared<GameButton>(model, shader, texture1);
-	button1->Set2DPosition(screenWidth / 2, 300);
-	button1->SetSize(200, 50);
-	button1->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Credit);
-		});
-	m_listButton.push_back(button1);
 
 	//exit button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_quit");
 	button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, 400);
+	button->Set2DPosition(screenWidth / 2, 300);
 	button->SetSize(200, 50);
 	button->SetOnClick([]() {
 		exit(0);
@@ -57,11 +48,16 @@ void GSMenu::Init()
 	m_listButton.push_back(button);
 
 
-	//text game title
-	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
-	m_Text_gameName = std::make_shared< Text>(shader, font, "MATH 3 GAME", TEXT_COLOR::GREEN, 1.0);
-	m_Text_gameName->Set2DPosition(Vector2(screenWidth / 2 - 80, 120));
+	//game title
+	//shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	/*std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
+	m_Text_gameName = std::make_shared< Text>(shader, font, "FLAPPY BIRD", TEXT_COLOR::GREEN, 1.0);
+	m_Text_gameName->Set2DPosition(Vector2(screenWidth / 2 - 80, 120));*/
+	texture = ResourceManagers::GetInstance()->GetTexture("Flappy");
+	m_Logo = std::make_shared<Sprite2D>(model, shader, texture);
+	m_Logo->Set2DPosition(screenWidth / 2, 100);
+	m_Logo->SetSize(400, 106);
+
 }
 
 void GSMenu::Exit()
@@ -115,5 +111,5 @@ void GSMenu::Draw()
 	{
 		it->Draw();
 	}
-	m_Text_gameName->Draw();
+	m_Logo->Draw();
 }

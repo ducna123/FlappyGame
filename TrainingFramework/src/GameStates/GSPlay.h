@@ -2,6 +2,7 @@
 #include "gamestatebase.h"
 #include "GameButton.h"
 #include "../../Pipe.h"
+#include "../../Bird.h"
 
 class Sprite2D;
 class Sprite3D;
@@ -28,8 +29,8 @@ public:
 	void Draw();
 
 	
-	void CreatRandomPipeUp();
-	void CreatRandomPipeDown();
+	void CreatRandomPipeUp(int x);
+	void CreatRandomPipeDown(int x);
 
 private:
 
@@ -43,7 +44,7 @@ private:
 	
 	std::list<std::shared_ptr<Pipe>> m_listPipeUp;
 	std::list<std::shared_ptr<Pipe>> m_listPipeDown;
-
+	std::shared_ptr<Bird> m_Bird;
 	std::shared_ptr<Text>  m_score;
 
 };

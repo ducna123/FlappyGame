@@ -60,7 +60,11 @@ void GSPlay::Init()
 	m_score = std::make_shared< Text>(shader, font, "score: 10", TEXT_COLOR::RED, 1.0);
 	m_score->Set2DPosition(Vector2(5, 25));
 
-
+	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	texture = ResourceManagers::GetInstance()->GetTexture("Bird");
+	m_Bird = std::make_shared<Bird >(model, shader, texture);
+	m_Bird->Set2DPosition(30 , screenHeight/2);
+	m_Bird->SetSize(50, 37);
 
 
 }
@@ -94,8 +98,8 @@ void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 
 void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 {
-	
-	
+	if(!bIsPressed)
+		m_Bird->Fly(0.5);
 
 }
 
@@ -108,8 +112,12 @@ void GSPlay::Update(float deltaTime)
 	}
 	if (m_SpawnCooldown <= 0)
 	{
-		CreatRandomPipeDown();
-		CreatRandomPipeUp();
+
+		srand(time(0));
+		int a = rand() % 40 + 1;
+
+		CreatRandomPipeDown(a);
+		CreatRandomPipeUp(a);
 		m_SpawnCooldown = 3;
 	}
 
@@ -129,11 +137,18 @@ void GSPlay::Update(float deltaTime)
 		}
 	}
 
+	if (m_Bird->IsAlive())
+	{
+		m_Bird->Update(deltaTime);
+	}
+
 
 }
 
 void GSPlay::Draw()
 {
+
+
 	m_BackGround->Draw();
 
 	for (auto pipe : m_listPipeDown)
@@ -145,18 +160,17 @@ void GSPlay::Draw()
 	{
 		pipe->Draw();
 	}
+	m_Bird->Draw();
+
 	m_Land->Draw();
 	m_score->Draw();
 }
 
-void GSPlay::CreatRandomPipeUp()
+void GSPlay::CreatRandomPipeUp(int x)
 {
-	int range = 800 - 10 + 1;
-	int num = rand() % range + 10;
-
 	Vector2 posUp;
 	posUp.x = 800;
-	posUp.y = 0;
+	posUp.y = 0+x;
 
 
 	for (auto pipe : m_listPipeUp)
@@ -180,14 +194,11 @@ void GSPlay::CreatRandomPipeUp()
 
 }
 
-void GSPlay::CreatRandomPipeDown()
+void GSPlay::CreatRandomPipeDown(int x)
 {
-	int range = 800 - 10 + 1;
-	int num = rand() % range + 10;
-
 	Vector2 posDown;
 	posDown.x = 800;
-	posDown.y = 400;
+	posDown.y = 400+x;
 
 
 	for (auto pipe : m_listPipeDown)
